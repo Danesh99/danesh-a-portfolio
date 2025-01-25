@@ -76,14 +76,14 @@
                 '9xl': '96rem',
               },
               animation: {
-                'fade-in': 'fadeIn 0.5s ease-in',
-                'fade-out': 'fadeOut 0.5s ease-out',
-                'slide-up': 'slideUp 0.5s ease-out',
-                'slide-down': 'slideDown 0.5s ease-out',
-                'slide-left': 'slideLeft 0.5s ease-out',
-                'slide-right': 'slideRight 0.5s ease-out',
-                'scale-in': 'scaleIn 0.5s ease-out',
-                'scale-out': 'scaleOut 0.5s ease-out',
+                'fade-in': 'fadeIn 0.5s ease-in infinite',
+                'fade-out': 'fadeOut 0.5s ease-out infinite',
+                'slide-up': 'slideUp 0.5s ease-out infinite',
+                'slide-down': 'slideDown 0.5s ease-out infinite',
+                'slide-left': 'slideLeft 0.5s ease-out infinite',
+                'slide-right': 'slideRight 0.5s ease-out infinite',
+                'scale-in': 'scaleIn 0.5s ease-out infinite',
+                'scale-out': 'scaleOut 0.5s ease-out infinite',
                 'spin-slow': 'spin 3s linear infinite',
                 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 'bounce-slow': 'bounce 3s infinite',
@@ -409,7 +409,14 @@
                 <a href="#skills" class="block px-3 py-2 hover:bg-neutral-700" id="el-t51j6pdw">Skills</a>
                 <a href="#certifications" class="block px-3 py-2 hover:bg-neutral-700" id="el-2hgjg0e1">Certifications</a>
                 <a href="#contact" class="block px-3 py-2 hover:bg-neutral-700" id="el-lnhe1qli">Contact</a>
-				<a href="https://drive.google.com/file/d/1-5IBGXAcLiI9ICvjfe0L6UtupsGjnHDj/view?usp=drivesdk" class="hover:text-[#0FAAFF] transition-colors duration-300 flex items-center" download="resume.pdf" target="_blank">
+                <a href="https://drive.google.com/file/d/1-5IBGXAcLiI9ICvjfe0L6UtupsGjnHDj/view?usp=drivesdk" class="block px-3 py-2 hover:bg-neutral-700" download="resume.pdf" target="_blank">
+                  <div style="display: flex;">
+                    <span>Resume</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                  </div>
+              </a>
             </div>
         </div>
     </nav>
