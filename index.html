@@ -906,113 +906,79 @@ document.addEventListener('DOMContentLoaded', () => {
             </ul>
           </div>
         </div>
-
-        <!-- Skills Progress Bars -->
-        <div class="mt-16 grid md:grid-cols-2 gap-8" id="el-3pq5cje4">
-          <div class="space-y-6" id="el-28ex9652">
-            <div class="skill-bar" id="el-n0omgbgc">
-              <div class="flex justify-between mb-2" id="el-eifx870r">
-                <div class="relative">
-
-                  <span class="text-blue-400 hover:text-blue-500 transition-colors duration-200">SAP PI/PO</span>
-                </div>
-                <span class="text-blue-400">95%</span>
-              </div>
-              <div class="h-3 bg-neutral-800 rounded-full" id="el-ufsu4rtp">
-                <div class="h-3 bg-blue-600 rounded-full" style="width: 95%; animation: skillFill 1.5s ease-out"
-                  id="el-kdxjqn8f"></div>
-              </div>
-            </div>
-            <div class="skill-bar" id="el-ochkyts5">
-              <div class="flex justify-between mb-2" id="el-vnr86q3k">
-                <span class="text-blue-400" id="el-5scsu6g0">Cloud Technologies</span>
-                <span class="text-blue-400" id="el-x9yzxsep">90%</span>
-              </div>
-              <div class="h-3 bg-neutral-800 rounded-full" id="el-j747oojl">
-                <div class="h-3 bg-blue-600 rounded-full" style="width: 90%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-              </div>
-            </div>
-          </div>
-          <div class="space-y-6" id="el-wpfg7x2z">
-            <div class="skill-bar" id="el-896lej1r">
-              <div class="flex justify-between mb-2" id="el-dt0i1bt6">
-                <span class="text-blue-400" id="el-6b7qf0x7">API Management</span>
-                <span class="text-blue-400" id="el-ln5zp4bu">85%</span>
-              </div>
-              <div class="h-3 bg-neutral-800 rounded-full" id="el-gwbm5uxk">
-                <div class="h-3 bg-blue-600 rounded-full" style="width: 85%; animation: skillFill 1.5s ease-out"
-                  id="el-u2i4rm3c"></div>
-              </div>
-            </div>
-            <div class="skill-bar" id="el-3mxzque2">
-              <div class="flex justify-between mb-2" id="el-4q5chvim">
-                <span class="text-blue-400" id="el-l102o0np">SAP CPI</span>
-                <span class="text-blue-400" id="el-inlabli1">80%</span>
-              </div>
-              <div class="h-3 bg-neutral-800 rounded-full" id="el-9ceztbtt">
-                <div class="h-3 bg-blue-600 rounded-full" style="width: 80%; animation: skillFill 1.5s ease-out"
-                  id="el-qvrd3im9"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- skill bar-->
+ <div class="mt-16 grid md:grid-cols-2 gap-8">
+  <div class="space-y-6">
+    <div class="skill-bar">
+      <div class="flex justify-between mb-2">
+        <span class="text-blue-400">SAP PI/PO</span>
+        <span class="text-blue-400">95%</span>
       </div>
-    </section>
+      <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 1000%;" data-width="95%"></div>
+      </div>
+    </div>
+    <div class="skill-bar">
+      <div class="flex justify-between mb-2">
+        <span class="text-blue-400">Cloud Technologies</span>
+        <span class="text-blue-400">90%</span>
+      </div>
+      <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="space-y-6">
+    <div class="skill-bar">
+      <div class="flex justify-between mb-2">
+        <span class="text-blue-400">API Management</span>
+        <span class="text-blue-400">85%</span>
+      </div>
+      <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
+      </div>
+    </div>
+    <div class="skill-bar">
+      <div class="flex justify-between mb-2">
+        <span class="text-blue-400">SAP CPI</span>
+        <span class="text-blue-400">80%</span>
+      </div>
+      <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <style>
-      @keyframes skillFill {
-        from {
-          width: 0;
-        }
-
-        to {
-          width: 100%;
-        }
-      }
-
-      .skill-bar>div:last-child>div {
-        animation: skillFill 1.5s ease-out forwards;
-      }
-
-      .animate-fadeIn {
-        animation: fadeIn 1s ease-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-      }
-    </style>
-	<script>document.addEventListener('DOMContentLoaded', () => {
-  const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of the element is visible
-  };
-
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const skillProgressBars = document.querySelectorAll('.skill-progress');
+  
+  const observerOptions = { threshold: 0.1 };
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const target = entry.target;
-
-        // Remove and reapply the skill-fill class to restart the animation
-        target.classList.remove('animate-skill-fill');
-        void target.offsetWidth; // Trigger a reflow
-        target.classList.add('animate-skill-fill');
+        const progressBar = entry.target;
+        const width = progressBar.getAttribute('data-width');
+        
+        // Animate to exact percentage width
+        progressBar.style.width = width;
+        
+        observer.unobserve(progressBar);
       }
     });
   }, observerOptions);
-
-  // Select all progress bars with the skill-fill class
-  document.querySelectorAll('.skill-bar .animate-skill-fill').forEach((element) => {
-    observer.observe(element);
-  });
+  
+  skillProgressBars.forEach(bar => observer.observe(bar));
 });
 </script>
+
+<style>
+.skill-progress {
+  transition: width 5s ease-out;
+}
+</style>
   </div>
 </htmlcode>
 
@@ -1224,8 +1190,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="p-6 border border-blue-600/30 rounded-xl" id="el-v2ltxmbd">
               <div class="flex items-center justify-between mb-4" id="el-erlfqy11">
                 <h3 class="text-xl font-semibold text-blue-400" id="el-l9yq9caq">Event Mesh Implementation</h3>
-                <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm"
-                  id="el-emdkjg54">Real-time</span>
+               <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm whitespace-nowrap" id="el-ys181hxe">Event Mesh</span>
               </div>
               <p class="text-gray-300 mb-4" id="el-wtgseifd">Real-time event-driven architecture implementation using
                 SAP Event Mesh.</p>
@@ -1292,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <htmlcode id="el-um7jp5tm">
   <div id="root">
-    <section id="skills" class="py-20 bg-neutral-900 text-white relative overflow-hidden">
+   <section id="skills" class="py-20 bg-neutral-900 text-white relative">
       <div class="container mx-auto px-4" id="el-3gsjsfs9">
         <!-- Section Header -->
         <div class="text-center mb-16 animate-fadeIn animate-element" id="el-ogdt7suo">
@@ -1300,163 +1265,206 @@ document.addEventListener('DOMContentLoaded', () => {
             id="el-s0v63wdq">Technical Skills</h2>
           <div class="w-24 h-1 bg-blue-600 mx-auto" id="el-vzxlsfgl"></div>
         </div>
-
-        <!-- Skills Categories -->
-        <div class="grid md:grid-cols-3 gap-8" id="el-aq4z3zmw">
-          <!-- SAP Technologies -->
-          <div class="skill-card transform hover:-translate-y-2 transition-all duration-300" id="el-rjiit4xl">
-            <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600" id="el-s6c5qq3w">
-              <h3 class="text-xl font-semibold text-blue-400 mb-6" id="el-9vkjep43">SAP Technologies</h3>
-              <div class="space-y-4" id="el-v2x27x0m">
-                <div class="skill-item" id="el-e57lj0am">
-                  <div class="flex justify-between mb-2" id="el-4tul8qn7">
-                    <span id="el-o9wilbl1">SAP PI/PO</span>
-                    <span class="text-blue-400" id="el-idtbehpq">95%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-fxj681jq">
-                <div class="h-3 bg-blue-600 rounded-full" style="width: 95%; animation: skillFill 1.5s ease-out"
-                  id="el-kdxjqn8f"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-cndndjak">
-                  <div class="flex justify-between mb-2" id="el-igpcow5m">
-                    <span id="el-wcfuqqyq">SAP CPI</span>
-                    <span class="text-blue-400" id="el-dmta8nmd">90%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-l7j4actp">
-                    <div class="h-3 bg-blue-600 rounded-full" style="width: 90%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-9k2qudc5">
-                  <div class="flex justify-between mb-2" id="el-ngpbdxa8">
-                    <span id="el-ix5mxz4g">SAP Event Mesh</span>
-                    <span class="text-blue-400" id="el-voxs3c8s">85%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-yndd152m">
-                    <div class="h-3 bg-blue-600 rounded-full" style="width: 85%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!-- Skills Categories -->
+<div class="grid md:grid-cols-3 gap-8">
+  <!-- SAP Technologies -->
+  <div class="skill-card transform hover:-translate-y-2 transition-all duration-300">
+    <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600">
+      <h3 class="text-xl font-semibold text-blue-400 mb-6">SAP Technologies</h3>
+      <div class="space-y-4">
+       <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>SAP PI/PO</span>
+            <span class="text-blue-400">95%</span>
           </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="95%"></div>
 
-          <!-- Cloud & Integration -->
-          <div class="skill-card transform hover:-translate-y-2 transition-all duration-300" id="el-0zjdfxy0">
-            <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600" id="el-eihq4jkn">
-              <h3 class="text-xl font-semibold text-blue-400 mb-6" id="el-u1ya28gr">Cloud &amp; Integration</h3>
-              <div class="space-y-4" id="el-gxoajcju">
-                <div class="skill-item" id="el-hdhdnirf">
-                  <div class="flex justify-between mb-2" id="el-genmgzy7">
-                    <span id="el-8y1nky1c">Azure APIM</span>
-                    <span class="text-blue-400" id="el-3hj8rgvb">88%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-c1mojerc">
-<div class="h-3 bg-blue-600 rounded-full" style="width: 80%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-h032zvdr">
-                  <div class="flex justify-between mb-2" id="el-r49h7ite">
-                    <span id="el-z32didil">API Management</span>
-                    <span class="text-blue-400" id="el-33x518zi">85%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-dcaw7l98">
-                   <div class="h-3 bg-blue-600 rounded-full" style="width: 85%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-s4jbfgbe">
-                  <div class="flex justify-between mb-2" id="el-1ace32y8">
-                    <span id="el-uquaq1ei">Cloud Integration</span>
-                    <span class="text-blue-400" id="el-csqqscrq">92%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-dkmr81fw">
-                  <div class="h-3 bg-blue-600 rounded-full" style="width: 92%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Development -->
-          <div class="skill-card transform hover:-translate-y-2 transition-all duration-300" id="el-vhx3c207">
-            <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600" id="el-e9e7hxx6">
-              <h3 class="text-xl font-semibold text-blue-400 mb-6" id="el-qksr6no1">Development</h3>
-              <div class="space-y-4" id="el-852kysqs">
-                <div class="skill-item" id="el-zvb41d3z">
-                  <div class="flex justify-between mb-2" id="el-p158bk3q">
-                    <span id="el-zw5jimg5">Java</span>
-                    <span class="text-blue-400" id="el-sgsvvzg6">80%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-7m9t44hw">
-                    <div class="h-3 bg-blue-600 rounded-full" style="width: 80%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-e2983h64">
-                  <div class="flex justify-between mb-2" id="el-ts62uimp">
-                    <span id="el-9tdjj1oc">AngularJS</span>
-                    <span class="text-blue-400" id="el-qyj6actt">75%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-u7ypjjm5">
-                   <div class="h-3 bg-blue-600 rounded-full" style="width: 75%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-                <div class="skill-item" id="el-ov720o13">
-                  <div class="flex justify-between mb-2" id="el-g3m6zy0g">
-                    <span id="el-af3ztf0s">HTML</span>
-                    <span class="text-blue-400" id="el-pdmuzugq">85%</span>
-                  </div>
-                  <div class="h-2 bg-neutral-700 rounded-full overflow-hidden" id="el-4ao69hfc">
-<div class="h-3 bg-blue-600 rounded-full" style="width: 85%; animation: skillFill 1.5s ease-out"
-                  id="el-teiwf18u"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
+        <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>SAP CPI</span>
+            <span class="text-blue-400">90%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
 
-      
+          </div>
+        </div>
+       <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>SAP Event Mesh</span>
+            <span class="text-blue-400">85%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
 
-      <style>
-        @keyframes skillWidth {
-          from {
-            width: 0;
-          }
-
-          to {
-            width: 100%;
-          }
-        }
-
-        .animate-skillWidth {
-          animation: skillWidth 1.5s ease-out forwards;
-        }
-
-        .skill-item {
-          opacity: 0;
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      </style>
-    </section>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Cloud & Integration -->
+  <div class="skill-card transform hover:-translate-y-2 transition-all duration-300">
+    <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600">
+      <h3 class="text-xl font-semibold text-blue-400 mb-6">Cloud & Integration</h3>
+      <div class="space-y-4">
+        <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>Azure APIM</span>
+            <span class="text-blue-400">88%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="88%"></div>
+
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>API Management</span>
+            <span class="text-blue-400">85%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
+
+          </div>
+        </div>
+       <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>Cloud Integration</span>
+            <span class="text-blue-400">92%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="92%"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Development -->
+  <div class="skill-card transform hover:-translate-y-2 transition-all duration-300">
+    <div class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600">
+      <h3 class="text-xl font-semibold text-blue-400 mb-6">Development</h3>
+      <div class="space-y-4">
+        <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>Java</span>
+            <span class="text-blue-400">80%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
+
+          </div>
+        </div>
+        <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>HTML</span>
+            <span class="text-blue-400">90%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
+
+          </div>
+        </div>
+       <div class="skill-bar">
+          <div class="flex justify-between mb-2">
+            <span>CSS</span>
+            <span class="text-blue-400">90%</span>
+          </div>
+          <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<style>
+@keyframes skillWidth {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.skill-progress {
+  transition: width 1.5s ease-out;
+}
+
+.skill-item {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const skillProgressBars = document.querySelectorAll('.skill-progress');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+  
+  const animateSkillBar = (progressBar) => {
+    // Prevent multiple animations
+    if (progressBar.classList.contains('animated')) return;
+    
+    const width = progressBar.getAttribute('data-width');
+    
+    // Force reflow
+    progressBar.style.width = '0%';
+    void progressBar.offsetWidth;
+    
+    // Animate to full width
+    progressBar.style.width = width + '%';
+    progressBar.classList.add('animated');
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateSkillBar(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Reset all skill bars before observing
+  skillProgressBars.forEach(bar => {
+    bar.style.width = '0%';
+    bar.classList.remove('animated');
+    observer.observe(bar);
+  });
+  
+  // Handle page revisit or dynamic content
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      skillProgressBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.classList.remove('animated');
+      });
+    }
+  });
+});
+</script>
+
+</div>
 </htmlcode>
 <htmlCode>
   <div id="root">
