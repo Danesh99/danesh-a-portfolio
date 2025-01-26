@@ -1,0 +1,24 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Remove and re-add the animation class to restart the animation
+                const target = entry.target;
+                target.classList.remove('animate-slide-left', 'animate-slide-right'); // Adjust based on your class
+                void target.offsetWidth; // Trigger reflow
+                target.classList.add('animate-slide-right'); // Adjust based on your class
+            }
+        });
+    }, observerOptions);
+
+    // Attach the observer to elements with animation classes
+    document.querySelectorAll('.animate-slide-left, .animate-slide-right').forEach((element) => {
+        observer.observe(element);
+    });
+});
+</script>
