@@ -369,9 +369,10 @@
 
 
 <style>
+
     @keyframes fadeIn {
         from {
-            opacity: 0;
+            opacity: 100;
         }
         to {
             opacity: 1;
@@ -736,7 +737,7 @@
   <style>
     @keyframes slideInLeft {
       from {
-        transform: translateX(-200px);
+        transform: translateX(-100px);
         opacity: 0;
       }
 
@@ -748,7 +749,7 @@
 
     @keyframes slideInRight {
       from {
-        transform: translateX(200px);
+        transform: translateX(100px);
         opacity: 0;
       }
 
@@ -759,11 +760,16 @@
     }
 
     .animate-slide-left {
-      animation: slideLeft 5s ease-out  ;
+      animation: slideLeft 0.5s   ;
     }
 
     .animate-slide-right {
-      animation: slideRight 5s ease-out  ;
+      animation: slideRight 0.5s   ;
+	 
+	 @media (max-width: 768px) {
+  .animate-slide-left, .animate-slide-right {
+    animation: none; /* Disable animations if needed for very small screens */
+  }
     }
   </style>
 </htmlcode>
@@ -1022,20 +1028,21 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Timeline -->
-        <div class="relative" id="el-vf0gct7z">
+        <div class="relative" id="el-vf0gct7z" style = "opacity-10">
           <!-- Timeline Line -->
-          <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-600/30" id="el-yojlo5ut"></div>
+          <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-600/30 "style ="opacity-0.3" id="el-yojlo5ut"></div>
 
           <!-- Experience Items -->
           <div class="space-y-16" id="el-534f347h">
             <!-- Accenture -->
+			
             <div class="relative group" id="el-dgshcd1p">
-              <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-4" id="el-3i7qrpbp">
+              <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-4" id="el-3i7qrpbp" >
                 <div
                   class="w-8 h-8 bg-blue-600 rounded-full border-4 border-neutral-900 group-hover:scale-125 transition-transform duration-300"
                   id="el-2xawe0w3"></div>
               </div>
-			  <div class="space-y-6 animate-slide-left " id="el-ahazt4qi">
+			  <div class="space-y-6 animate-element animate-slide-left " style="opacity-100" id="el-ahazt4qi">
               <div
                 class="ml-auto mr-8 md:mr-auto md:ml-[55%] w-full md:w-[45%] p-6 bg-neutral-800 rounded-lg hover:bg-neutral-800/80 transform hover:-translate-y-2 transition-all duration-300"
                 id="el-xclm4l8s">
@@ -1059,7 +1066,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </ul>
               </div>
             </div>
-
+<br>
             <!-- System Engineer -->
             <div class="relative group" id="el-16sh6zqq">
 			
@@ -1070,7 +1077,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
 			  <div class="space-y-6 animate-slide-right" id="el-ahazt4qi">
               <div
-                class="mr-auto ml-8 md:ml-auto md:mr-[55%] w-full md:w-[45%] p-6 bg-neutral-800 rounded-lg hover:bg-neutral-800/80 transform hover:-translate-y-2 transition-all duration-300"
+                class="ml-auto ml-8 md:ml-auto md:mr-[55%] w-full md:w-[45%] p-6 bg-neutral-800 rounded-lg hover:bg-neutral-800/80 transform hover:-translate-y-2 transition-all duration-300"
                 id="el-f3ycj7ua">
                 <h3 class="text-xl font-semibold text-blue-400" id="el-hyyhpdcc">System Engineer</h3>
                 <p class="text-blue-300 mb-2" id="el-woajtgua">Infosys</p>
@@ -1465,7 +1472,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Certifications Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- SAP Cloud Integration -->
-          <div class="certification-card group" data-aos="fade-up">
+          <div class="certification-card group" data-aos="fade-up" data-aos-delay="50">
             <div
               class="bg-neutral-800 p-6 rounded-xl border border-blue-600/30 hover:border-blue-600 transform hover:-translate-y-2 transition-all duration-300">
               <div
