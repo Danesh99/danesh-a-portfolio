@@ -897,11 +897,11 @@ document.addEventListener('DOMContentLoaded', () => {
               </li>
               <li class="flex items-center" id="el-20esfb5z">
                 <span class="w-2 h-2 bg-blue-400 rounded-full mr-2" id="el-lwhoct4u"></span>
-                AngularJS
+                HTML
               </li>
               <li class="flex items-center" id="el-od1nnazz">
                 <span class="w-2 h-2 bg-blue-400 rounded-full mr-2" id="el-qk5xczqc"></span>
-                HTML
+                CSS
               </li>
             </ul>
           </div>
@@ -921,10 +921,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="skill-bar">
       <div class="flex justify-between mb-2">
         <span class="text-blue-400">Cloud Technologies</span>
-        <span class="text-blue-400">90%</span>
+        <span class="text-blue-400">80%</span>
       </div>
       <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
       </div>
     </div>
   </div>
@@ -932,10 +932,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="skill-bar">
       <div class="flex justify-between mb-2">
         <span class="text-blue-400">API Management</span>
-        <span class="text-blue-400">85%</span>
+        <span class="text-blue-400">80%</span>
       </div>
       <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
       </div>
     </div>
     <div class="skill-bar">
@@ -1285,20 +1285,20 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="skill-bar">
           <div class="flex justify-between mb-2">
             <span>SAP CPI</span>
-            <span class="text-blue-400">90%</span>
+            <span class="text-blue-400">80%</span>
           </div>
           <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="90%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
 
           </div>
         </div>
        <div class="skill-bar">
           <div class="flex justify-between mb-2">
             <span>SAP Event Mesh</span>
-            <span class="text-blue-400">85%</span>
+            <span class="text-blue-400">80%</span>
           </div>
           <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
 
           </div>
         </div>
@@ -1314,30 +1314,30 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="skill-bar">
           <div class="flex justify-between mb-2">
             <span>Azure APIM</span>
-            <span class="text-blue-400">88%</span>
+            <span class="text-blue-400">70%</span>
           </div>
           <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="88%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="70%"></div>
 
           </div>
         </div>
         <div class="skill-bar">
           <div class="flex justify-between mb-2">
             <span>API Management</span>
-            <span class="text-blue-400">85%</span>
+            <span class="text-blue-400">80%</span>
           </div>
           <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="85%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
 
           </div>
         </div>
        <div class="skill-bar">
           <div class="flex justify-between mb-2">
             <span>Cloud Integration</span>
-            <span class="text-blue-400">92%</span>
+            <span class="text-blue-400">80%</span>
           </div>
           <div class="h-3 bg-neutral-800 rounded-full overflow-hidden">
-        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="92%"></div>
+        <div class="h-3 bg-blue-600 rounded-full skill-progress" style="width: 0%;" data-width="80%"></div>
 
           </div>
         </div>
@@ -1388,7 +1388,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <style>
 @keyframes skillWidth {
   from { width: 0; }
-  to { width: 100%; }
+  to { width: data-width; }
 }
 
 .skill-progress {
@@ -1584,7 +1584,6 @@ document.addEventListener('DOMContentLoaded', () => {
           opacity: 0;
           transform: translateY(20px);
         }
-
         to {
           opacity: 1;
           transform: translateY(0);
@@ -1611,6 +1610,37 @@ document.addEventListener('DOMContentLoaded', () => {
         animation-delay: 0.5s;
       }
     </style>
+	 <script>
+      // Function to reset animations
+      function resetAnimations() {
+        const cards = document.querySelectorAll('.certification-card');
+        cards.forEach((card) => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          card.style.animation = 'none'; // Reset animation
+          void card.offsetWidth; // Trigger reflow to restart animation
+          card.style.animation = 'fadeInUp 0.6s ease-out forwards'; // Reapply animation
+        });
+      }
+
+      // Intersection Observer to detect when the section is in view
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              resetAnimations();
+            }
+          });
+        },
+        {
+          threshold: 0.5, // Trigger when 50% of the section is visible
+        }
+      );
+
+      // Observe the certifications section
+      const certificationsSection = document.getElementById('certifications');
+      observer.observe(certificationsSection);
+    </script>
   </div>
 </htmlCode>
 <htmlcode id="el-m00v4ubf">
@@ -1691,7 +1721,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <!-- Location -->
             <div
-              class="bg-neutral-800 p-8 rounded-xl border border-blue-600/30 hover:border-blue-600 transition-all duration-300"
+              class="bg-neutral-800 p-8 rounded-xl border border-blue-600/30 hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-1""
               id="el-3pnge65w">
               <div class="flex items-center space-x-4 mb-4" id="el-y2yp86zt">
                 <div class="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center" id="el-tuai63zk">
@@ -1704,9 +1734,10 @@ document.addEventListener('DOMContentLoaded', () => {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" id="el-q5y505rr"></path>
                   </svg>
                 </div>
-                <div id="el-u743ohcb">
-                  <p class="text-gray-400 text-sm" id="el-yw2h7a7y">Location</p>
-                  <p class="text-white" id="el-brge6zag">Chennai, Tamil Nadu, India</p>
+                <div id="el-yi2x2txb">
+                  <p class="text-gray-400 text-sm" id="el-67gnh1cd">Location</p>
+                  <a href="https://maps.app.goo.gl/BZGdx34z9QA2CXj99" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors"
+                    id="el-tesuaaxw">Chennai , Tamil Nadu </a>
                 </div>
               </div>
             </div>
@@ -1735,7 +1766,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </button>
 
      <!-- Success Popup -->
-<div id="success-popup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-700 text-white rounded-lg shadow-xl p-6 hidden z-50 border border-neutral-600">
+<div id="success-popup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-900 text-white rounded-lg shadow-xl p-6 hidden z-50 border border-blue-600">
   <div class="text-center">
       <div class="mb-4">
           <svg class="w-16 h-16 text-green-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1744,7 +1775,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <h3 class="text-xl font-semibold mb-2">Saved Successfully!</h3>
       <p class="text-gray-300">Your message has been sent successfully.</p>
-      <button onclick="closePopup()" class="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors">
+      <button onclick="closePopup()" class="mt-4 px-4 py-2 bg-blue-700 hover:bg-blue-700 rounded-lg text-white transition-colors">
           Close
       </button>
   </div>
